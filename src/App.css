@@ -21,7 +21,7 @@
 }
 
 .fight-cards-container {
-  background-image: url('./greenbelt.png');
+  background-image: url('./assets/greenbelt.png');
   background-size: contain;
   background-repeat: no-repeat;
   display: flex;
