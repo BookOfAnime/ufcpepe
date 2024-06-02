@@ -30,14 +30,17 @@ body {
 .main-title {
   font-size: 4rem;
   margin-bottom: 2rem;
-  color: #fff; /* Lighter text color for better contrast */
+  animation: textGlow 2s infinite alternate;
+  color: #fff; /* White text color */
   font-weight: bold;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, rgba(255, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-  padding: 1rem;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  text-transform: uppercase;
+  border: 5px solid #ff0000; /* Red border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 1rem; /* Padding inside the border */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Smooth lighting effect */
+  background: linear-gradient(to right, #ff0000, #000); /* Gradient background */
+  text-shadow: 2px 2px 4px #000; /* Text shadow */
 }
 
 .fight-cards-container {
@@ -185,6 +188,26 @@ body {
 
 .footer-content span {
   padding: 0 2rem;
+}
+
+.audio-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.audio-button:hover {
+  background-color: #cc0000;
 }
 
 @keyframes scrollTextHorizontal {

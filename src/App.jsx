@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 
 function App() {
@@ -43,16 +43,16 @@ function App() {
     "Every winner in Pepe World gets a pond full of bragging rights!"
   ];
 
-  const audioPlayedRef = useRef(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio("./joe.mp3"));
 
-  const handleMouseEnter = () => {
-    if (!audioPlayedRef.current) {
-      audioRef.current.play().catch(error => {
-        console.error("Failed to play audio:", error);
-      });
-      audioPlayedRef.current = true;
+  const handleButtonClick = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
     }
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -60,7 +60,7 @@ function App() {
       <h1 className="main-title">PEPE UFC</h1>
       <div className="fight-cards-container">
         {fights.map((fight) => (
-          <div key={fight.id} className="fight-container" onMouseEnter={handleMouseEnter}>
+          <div key={fight.id} className="fight-container">
             <div className="fighter-card animate-left">
               <h2>{fight.fighter1.name}</h2>
               <img className="fighter-image" src={fight.fighter1.image} alt={fight.fighter1.name} />
@@ -106,6 +106,9 @@ function App() {
           ))}
         </div>
       </div>
+      <button className="audio-button" onClick={handleButtonClick}>
+        {isPlaying ? "Pause Sound" : "Play Sound"}
+      </button>
     </div>
   );
 }
