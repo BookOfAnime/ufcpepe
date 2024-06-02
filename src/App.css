@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  animation: textGlow 2s infinite alternate;
+}
+
+.fight-cards-container {
+  background-image: url('./greenbelt.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.fight-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.fight-container:hover {
+  border-color: #ff0000;
+}
+
+.fighter-card, .fight-details {
+  border: 2px solid #333;
+  padding: 1rem;
+  background-color: white;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: 350px;
+}
+
+.fighter-card:hover, .fight-details:hover {
+  transform: scale(1.05);
+}
+
+.fighter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fighter-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.fighter-country {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.fighter-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fight-details {
+  text-align: center;
+  animation: slideIn 1s ease-in-out;
+}
+
+.matchup-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.matchup-stats .stat {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ad-bar {
+  position: fixed;
+  top: 0;
+  width: 50px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-bar {
+  left: 0;
+}
+
+.right-bar {
+  right: 0;
+}
+
+.ad-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  animation: scrollText 10s linear infinite;
+}
+
+.ad-content p {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.ad-content::before,
+.ad-content::after {
+  content: "UFC UFC UFC UFC UFC UFC UFC UFC UFC UFC ";
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+  to {
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+}
+
+@media (min-width: 768px) {
+  .fight-container {
+    flex-direction: row;
+  }
+
+  .fight-details {
+    width: 50%;
+  }
+
+  .fighter-card {
+    width: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ad-bar {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .ad-bar {
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .left-bar, .right-bar {
+    display: none;
+  }
+
+  .ad-content {
+    flex-direction: row;
+    height: auto;
+    width: 200%;
+    animation: scrollTextHorizontal 10s linear infinite;
+  }
+
+  .ad-content::before,
+  .ad-content::after {
+    content: "UFC UFC UFC UFC UFC UFC UFC UFC UFC UFC ";
+  }
+}
+
+@keyframes scrollTextHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

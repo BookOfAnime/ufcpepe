@@ -1,0 +1,205 @@
+import React from "react";
+import "./App.css";
+
+function App() {
+  const fights = [
+    {
+      id: 1,
+      fighter1: { name: "ISLAM MAKHACHEV", country: "Russia", image: "./champ.png", stats: { record: "25-1-0", height: "5'10\"", weight: "177.00 LB", reach: "70.5 in" } },
+      fighter2: { name: "DUSTIN POIRIER", country: "United States", image: "./fighterOnBack.png", stats: { record: "30-8-0", height: "5'9\"", weight: "168.00 LB", reach: "72 in" } },
+    },
+    {
+      id: 2,
+      fighter1: { name: "SEAN STRICKLAND", country: "United States", image: "./strictland.png", stats: { record: "#1", height: "6'1\"", weight: "185.00 LB", reach: "76 in" } },
+      fighter2: { name: "PAULO COSTA", country: "Brazil", image: "./paulo.png", stats: { record: "#7", height: "6'0\"", weight: "185.00 LB", reach: "72 in" } },
+    },
+    {
+      id: 3,
+      fighter1: { name: "KEVIN HOLLAND", country: "United States", image: "./kevinNo.png", stats: { record: "#15", height: "6'3\"", weight: "170.00 LB", reach: "81 in" } },
+      fighter2: { name: "MICHAL OLEKSIEJCZUK", country: "Poland", image: "./file.png", stats: { record: "-", height: "6'0\"", weight: "205.00 LB", reach: "74 in" } },
+    },
+    {
+      id: 4,
+      fighter1: { name: "NIKO PRICE", country: "United States", image: "./buffre.png", stats: { record: "-", height: "6'0\"", weight: "170.00 LB", reach: "76 in" } },
+      fighter2: { name: "ALEX MORONO", country: "United States", image: "./las.png", stats: { record: "-", height: "5'11\"", weight: "170.00 LB", reach: "73 in" } },
+    },
+    {
+      id: 5,
+      fighter1: { name: "RANDY BROWN", country: "Jamaica", image: "./tallr.png", stats: { record: "-", height: "6'3\"", weight: "170.00 LB", reach: "78 in" } },
+      fighter2: { name: "ELIZEU ZALESKI DOS SANTOS", country: "Brazil", image: "./ta.png", stats: { record: "-", height: "5'11\"", weight: "170.00 LB", reach: "73 in" } },
+    },
+  ];
+
+  return (
+    <div className="main-container">
+      <h1 className="main-title">Fight Cards</h1>
+      <div className="fight-cards-container">
+        {fights.map((fight) => (
+          <div key={fight.id} className="fight-container">
+            <div className="fighter-card animate-left">
+              <h2>{fight.fighter1.name}</h2>
+              <img className="fighter-image" src={fight.fighter1.image} alt={fight.fighter1.name} />
+              <h3 className="fighter-country">{fight.fighter1.country}</h3>
+              <div className="fighter-stats">
+                {Object.entries(fight.fighter1.stats).map(([key, value]) => (
+                  <div className="stat" key={key}>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="fight-details animate-fade">
+              <div className="matchup-stats">
+                {Object.entries(fight.fighter1.stats).map(([key, value]) => (
+                  <div className="stat" key={key}>
+                    {value}
+                  </div>
+                ))}
+              </div>
+              <h2>VS</h2>
+              <div className="matchup-stats">
+                {Object.entries(fight.fighter2.stats).map(([key, value]) => (
+                  <div className="stat" key={key}>
+                    {value}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="fighter-card animate-right">
+              <h2>{fight.fighter2.name}</h2>
+              <img className="fighter-image" src={fight.fighter2.image} alt={fight.fighter2.name} />
+              <h3 className="fighter-country">{fight.fighter2.country}</h3>
+              <div className="fighter-stats">
+                {Object.entries(fight.fighter2.stats).map(([key, value]) => (
+                  <div className="stat" key={key}>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="ad-bar left-bar">
+        <div className="ad-content">
+        <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+        </div>
+      </div>
+      <div className="ad-bar right-bar">
+        <div className="ad-content">
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p> <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+          <p>PUFC</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
