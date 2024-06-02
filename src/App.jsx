@@ -30,9 +30,22 @@ function App() {
     },
   ];
 
+  const funnyMessages = [
+    "Pepe World: Where frogs fight dirty!",
+    "Winner winner, fly dinner!",
+    "Pepe World: Ribbit and rip it!",
+    "The only thing more slippery than Pepe is the competition!",
+    "In Pepe World, the only thing that gets bruised is the ego!",
+    "Winners in Pepe World get a croak of approval!",
+    "Hopping to victory, one punch at a time!",
+    "Pepe World: The land of croaks and jokes!",
+    "The road to victory is paved with lily pads and laughs!",
+    "Every winner in Pepe World gets a pond full of bragging rights!"
+  ];
+
   return (
     <div className="main-container">
-      <h1 className="main-title">Fight Cards</h1>
+      <h1 className="main-title">PEPE UFC</h1>
       <div className="fight-cards-container">
         {fights.map((fight) => (
           <div key={fight.id} className="fight-container">
@@ -82,120 +95,11 @@ function App() {
           </div>
         ))}
       </div>
-      <div className="ad-bar left-bar">
-        <div className="ad-content">
-        <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-        </div>
-      </div>
-      <div className="ad-bar right-bar">
-        <div className="ad-content">
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p> <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
-          <p>PUFC</p>
+      <div className="footer-bar">
+        <div className="footer-content">
+          {funnyMessages.map((message, index) => (
+            <span key={index}>{message}</span>
+          ))}
         </div>
       </div>
     </div>
