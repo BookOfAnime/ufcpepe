@@ -58,7 +58,7 @@ function App() {
   return (
     <div className="main-container">
       <nav className="navbar">
-        <a href="https://ufepepe.netlify.app/" target="_blank" rel="noopener noreferrer">Pump.Fun </a>
+        <a href="https://pump.fun/9g75CBnAFsZN3odqcmc8o4wtAHKkskSFiPUPYSLckr7T" target="_blank" rel="noopener noreferrer">Pump.Fun </a>
         <a href="https://t.me/PepeUFCPortal" target="_blank" rel="noopener noreferrer">Telegram</a>
         <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">DEX</a>
       </nav>
