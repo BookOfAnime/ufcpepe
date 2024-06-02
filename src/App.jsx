@@ -63,20 +63,12 @@ function App() {
             </div>
 
             <div className="fight-details animate-fade">
-              <div className="matchup-stats">
-                {Object.entries(fight.fighter1.stats).map(([key, value]) => (
-                  <div className="stat" key={key}>
-                    {value}
-                  </div>
-                ))}
-              </div>
+              <img className="belt-image" src="./greenbelt.png" alt="Green Belt" />
               <h2>VS</h2>
               <div className="matchup-stats">
-                {Object.entries(fight.fighter2.stats).map(([key, value]) => (
-                  <div className="stat" key={key}>
-                    {value}
-                  </div>
-                ))}
+                <div className="stat">Height: {fight.fighter1.stats.height} vs {fight.fighter2.stats.height}</div>
+                <div className="stat">Weight: {fight.fighter1.stats.weight} vs {fight.fighter2.stats.weight}</div>
+                <div className="stat">Reach: {fight.fighter1.stats.reach} vs {fight.fighter2.stats.reach}</div>
               </div>
             </div>
 

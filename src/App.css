@@ -28,7 +28,7 @@ body {
 }
 
 .main-title {
-  font-size: 10rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
   animation: textGlow 2s infinite alternate;
   color: #000; /* Darker text color */
@@ -136,6 +136,12 @@ body {
   animation: slideIn 1s ease-in-out;
   border-radius: 10px;
   padding: 2rem;
+}
+
+.belt-image {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 1rem;
 }
 
 .matchup-stats {
