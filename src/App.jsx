@@ -57,6 +57,11 @@ function App() {
 
   return (
     <div className="main-container">
+      <nav className="navbar">
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Pump.Fun </a>
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">DEX</a>
+      </nav>
       <h1 className="main-title">PEPE UFC</h1>
       <div className="fight-cards-container">
         {fights.map((fight) => (
