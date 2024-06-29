@@ -5,22 +5,22 @@ function App() {
   const fights = [
     {
       id: 1,
-      fighter1: { name: "ALEX PEREIRA", country: "Brazil", image: "./alex-pereira.png", stats: { record: "C", height: "6'4\"", weight: "205 LB", reach: "79\"" } },
-      fighter2: { name: "JIŘÍ PROCHÁZKA", country: "Czechia", image: "./jiri-prochazka.png", stats: { record: "#1", height: "6'3\"", weight: "205 LB", reach: "80\"" } },
+      fighter1: { name: "ALEX PEREIRA", country: "Brazil", image: "./alex.jpg", stats: { record: "C", height: "6'4\"", weight: "205 LB", reach: "79\"" } },
+      fighter2: { name: "JIŘÍ PROCHÁZKA", country: "Czechia", image: "./Per.jpg", stats: { record: "#1", height: "6'3\"", weight: "205 LB", reach: "80\"" } },
       title: "LIGHT HEAVYWEIGHT TITLE BOUT",
       odds: { fighter1: "-148", fighter2: "+124" }
     },
     {
       id: 2,
-      fighter1: { name: "BRIAN ORTEGA", country: "United States", image: "./brian-ortega.png", stats: { record: "#3", height: "5'9\"", weight: "145 LB", reach: "69\"" } },
-      fighter2: { name: "DIEGO LOPES", country: "Brazil", image: "./diego-lopes.png", stats: { record: "#14", height: "5'8\"", weight: "145 LB", reach: "70\"" } },
+      fighter1: { name: "BRIAN ORTEGA", country: "United States", image: "./brian.jpeg", stats: { record: "#3", height: "5'9\"", weight: "145 LB", reach: "69\"" } },
+      fighter2: { name: "DIEGO LOPES", country: "Brazil", image: "./lopez.jpeg", stats: { record: "#14", height: "5'8\"", weight: "145 LB", reach: "70\"" } },
       title: "LIGHTWEIGHT BOUT",
       odds: { fighter1: "+120", fighter2: "-142" }
     },
     {
       id: 3,
-      fighter1: { name: "ANTHONY SMITH", country: "United States", image: "./anthony-smith.png", stats: { record: "#10", height: "6'4\"", weight: "205 LB", reach: "76\"" } },
-      fighter2: { name: "ROMAN DOLIDZE", country: "Georgia", image: "./roman-dolidze.png", stats: { record: "-", height: "6'2\"", weight: "205 LB", reach: "76\"" } },
+      fighter1: { name: "ANTHONY SMITH", country: "United States", image: "./anthny.jpeg", stats: { record: "#10", height: "6'4\"", weight: "205 LB", reach: "76\"" } },
+      fighter2: { name: "ROMAN DOLIDZE", country: "Georgia", image: "./rom.jpeg", stats: { record: "-", height: "6'2\"", weight: "205 LB", reach: "76\"" } },
       title: "LIGHT HEAVYWEIGHT BOUT",
       odds: { fighter1: "-", fighter2: "-" }
     },
@@ -54,7 +54,9 @@ function App() {
         {fights.map((fight) => (
           <div key={fight.id} className="fight-container">
             <div className="fighter-card">
-              <img className="fighter-image" src={fight.fighter1.image} alt={fight.fighter1.name} />
+              <div className="fighter-image-container">
+                <img className="fighter-image" src={fight.fighter1.image} alt={fight.fighter1.name} />
+              </div>
               <h2 className="fighter-name">{fight.fighter1.name}</h2>
               <p className="fighter-country">{fight.fighter1.country}</p>
               {fight.fighter1.stats.record === "C" && <span className="champion-badge">C</span>}
@@ -70,7 +72,9 @@ function App() {
               </div>
             </div>
             <div className="fighter-card">
-              <img className="fighter-image" src={fight.fighter2.image} alt={fight.fighter2.name} />
+              <div className="fighter-image-container">
+                <img className="fighter-image" src={fight.fighter2.image} alt={fight.fighter2.name} />
+              </div>
               <h2 className="fighter-name">{fight.fighter2.name}</h2>
               <p className="fighter-country">{fight.fighter2.country}</p>
               <span className="fighter-rank">{fight.fighter2.stats.record}</span>
