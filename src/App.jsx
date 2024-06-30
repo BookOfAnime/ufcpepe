@@ -1,15 +1,16 @@
-// App.js
 import React, { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Preload, SpotLight } from "@react-three/drei";
 import * as THREE from 'three';
 import "./App.css";
+import LoadingScreen from './LoadingScreen';
 
-function Scene() {
+function Scene({ spotlightIntensity, spotlightColor }) {
   const gltf = useLoader(GLTFLoader, '/mma.glb');
   const meshRef = useRef();
+  const spotlightRef = useRef();
 
   useFrame((state, delta) => {
     if (meshRef.current) {
@@ -20,22 +21,54 @@ function Scene() {
   return (
     <group ref={meshRef}>
       <primitive object={gltf.scene} scale={[2, 2, 2]} position={[0, -1, 0]} />
+      <SpotLight
+        ref={spotlightRef}
+        position={[0, 10, 0]}
+        angle={0.6}
+        penumbra={0.5}
+        intensity={spotlightIntensity}
+        color={spotlightColor}
+        castShadow
+        target-position={[0, 0, 0]}
+      />
     </group>
   );
 }
 
-function CameraController() {
+function CameraController({ cameraPosition }) {
   const { camera } = useThree();
   
   useEffect(() => {
-    camera.position.set(5, 5, 5);
+    camera.position.set(...cameraPosition);
     camera.lookAt(0, 0, 0);
-  }, [camera]);
+  }, [camera, cameraPosition]);
 
   return null;
 }
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [cameraPosition, setCameraPosition] = useState([5, 5, 5]);
+  const [spotlightIntensity, setSpotlightIntensity] = useState(1);
+  const [spotlightColor, setSpotlightColor] = useState("#ffffff");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const moveCamera = (position) => {
+    setCameraPosition(position);
+  };
+
+  const changeLighting = (intensity, color) => {
+    setSpotlightIntensity(intensity);
+    setSpotlightColor(color);
+  };
+
   const fights = [
     {
       id: 1,
@@ -60,22 +93,14 @@ function App() {
     },
   ];
 
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(new Audio("./joe.mp3"));
-
-  const handleButtonClick = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="app-container">
       <div className="canvas-container">
-        <Canvas>
+        <Canvas shadows>
           <OrbitControls 
             enablePan={true} 
             enableZoom={true} 
@@ -83,12 +108,12 @@ function App() {
             minDistance={3}
             maxDistance={10}
           />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
+          <ambientLight intensity={0.2} />
           <Suspense fallback={null}>
-            <Scene />
+            <Scene spotlightIntensity={spotlightIntensity} spotlightColor={spotlightColor} />
           </Suspense>
-          <CameraController />
+          <CameraController cameraPosition={cameraPosition} />
+          <Preload all />
         </Canvas>
       </div>
       <div className="content-overlay">
@@ -96,13 +121,15 @@ function App() {
           <header className="event-header">
             <h1 className="event-title">UFC 303</h1>
             <p className="event-info">Sat, Jun 29 / 7:00 PM PDT, T-Mobile Arena, Las Vegas United States</p>
-            <button className="watch-button">HOW TO WATCH</button>
           </header>
-          <nav className="event-nav">
-            <button className="nav-button active">MAIN CARD</button>
-            <button className="nav-button">PRELIMS</button>
-            <button className="nav-button">EARLY PRELIMS</button>
-          </nav>
+          <div className="scene-controls">
+            <button onClick={() => moveCamera([5, 5, 5])}>Default View</button>
+            <button onClick={() => moveCamera([0, 8, 0])}>Top View</button>
+            <button onClick={() => moveCamera([8, 0, 0])}>Side View</button>
+            <button onClick={() => changeLighting(2, "#ff0000")}>Red Light</button>
+            <button onClick={() => changeLighting(1, "#ffffff")}>White Light</button>
+            <button onClick={() => changeLighting(2, "#0000ff")}>Blue Light</button>
+          </div>
           <div className="fight-cards-container">
             {fights.map((fight) => (
               <div key={fight.id} className="fight-container">
@@ -131,9 +158,6 @@ function App() {
               </div>
             ))}
           </div>
-          <button className="audio-button" onClick={handleButtonClick}>
-            {isPlaying ? "Pause Sound" : "Play Sound"}
-          </button>
         </div>
       </div>
     </div>
