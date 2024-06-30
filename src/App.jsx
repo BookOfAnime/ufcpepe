@@ -72,15 +72,15 @@ function App() {
   const fights = [
     {
       id: 1,
-      fighter1: { name: "ALEX PEREIRA", country: "Brazil", image: "./alex.jpg", stats: { record: "C", height: "6'4\"", weight: "205 LB", reach: "79\"" } },
-      fighter2: { name: "JIŘÍ PROCHÁZKA", country: "Czechia", image: "./Per.jpg", stats: { record: "#1", height: "6'3\"", weight: "205 LB", reach: "80\"" } },
+      fighter1: { name: "ALEX PEREIRA", country: "Brazil", image: "./first.jpeg", stats: { record: "C", height: "6'4\"", weight: "205 LB", reach: "79\"" } },
+      fighter2: { name: "JIŘÍ PROCHÁZKA", country: "Czechia", image: "./second.jpeg", stats: { record: "#1", height: "6'3\"", weight: "205 LB", reach: "80\"" } },
       title: "LIGHT HEAVYWEIGHT TITLE BOUT",
       odds: { fighter1: "-148", fighter2: "+124" }
     },
     {
       id: 2,
-      fighter1: { name: "BRIAN ORTEGA", country: "United States", image: "./brian.jpeg", stats: { record: "#3", height: "5'9\"", weight: "145 LB", reach: "69\"" } },
-      fighter2: { name: "DIEGO LOPES", country: "Brazil", image: "./lopez.jpeg", stats: { record: "#14", height: "5'8\"", weight: "145 LB", reach: "70\"" } },
+      fighter1: { name: "BRIAN ORTEGA", country: "United States", image: "./thirdf.jpeg", stats: { record: "#3", height: "5'9\"", weight: "145 LB", reach: "69\"" } },
+      fighter2: { name: "DIEGO LOPES", country: "Brazil", image: "./fourt.jpeg", stats: { record: "#14", height: "5'8\"", weight: "145 LB", reach: "70\"" } },
       title: "LIGHTWEIGHT BOUT",
       odds: { fighter1: "+120", fighter2: "-142" }
     },
