@@ -120,7 +120,7 @@ function App() {
         <div className="main-container">
           <header className="event-header">
             <h1 className="event-title">UFC 303</h1>
-            <p className="event-info">Sat, Jun 29 / 7:00 PM PDT, T-Mobile Arena, Las Vegas United States</p>
+            <p className="event-info">Sat, Jun 29 / 7:00 PM PDT, T-Mobile Arena, Las Vegas United States... CA: 943Kzz9FNH5kRvUeqAUN22Hb8MgbiwkRJSBziLaypump</p>
           </header>
           <div className="scene-controls">
             <button onClick={() => moveCamera([5, 5, 5])}>Default View</button>
