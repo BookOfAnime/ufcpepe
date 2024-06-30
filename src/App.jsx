@@ -126,9 +126,7 @@ function App() {
             <button onClick={() => moveCamera([5, 5, 5])}>Default View</button>
             <button onClick={() => moveCamera([0, 8, 0])}>Top View</button>
             <button onClick={() => moveCamera([8, 0, 0])}>Side View</button>
-            <button onClick={() => changeLighting(2, "#ff0000")}>Red Light</button>
-            <button onClick={() => changeLighting(1, "#ffffff")}>White Light</button>
-            <button onClick={() => changeLighting(2, "#0000ff")}>Blue Light</button>
+          
           </div>
           <div className="fight-cards-container">
             {fights.map((fight) => (
